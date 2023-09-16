@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* background-color: #a7bcff; */
 }
 .formContainer {
   background-color: #a7bcff;
@@ -50,9 +51,12 @@ label {
 }
 .ToDoContainer {
   background-color: #a7bcff;
-  height: 40vh;
   display: flex;
   justify-content: center;
+}
+.listpage{
+  height: 100vh;
+  background-color: #a7bcff;
 }
 .ToDoWrapper {
   margin: 20px 0px;
@@ -63,14 +67,16 @@ label {
   /* height: 40vh; */
   width: 100vh;
 }
-.ToDoItem {
+.todolistcontainer{
   background-color: #a7bcff;
-  height: 60vh;
+}
+.ToDoItem {
   display: flex;
-  /* justify-content: space-between; */
 }
 .toDoButton {
-  margin: 0px 10px 0px 10px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 .edit {
   background-color: yellow;

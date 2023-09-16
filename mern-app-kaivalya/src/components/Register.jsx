@@ -1,17 +1,24 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/user/register", {user:{ userName, email, password }})
-      .then((res) => console.log(res))
+      .post("http://localhost:3001/user/register", {
+        user: { userName, email, password },
+      })
+      .then((res) => {
+        if ((res.data = "exist")) {
+          navigate("/login");
+        }
+      })
       .catch((err) => console.log(err));
   };
   // console.log(user)
@@ -49,7 +56,9 @@ const Register = () => {
           />
           <button type="submit">Register</button>
         </form>
-        <p>You do have Account? <Link to="/login">Login</Link></p>
+        <p>
+          You do have Account? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import axios from "axios";
 
 function Create() {
   const [taskDetails, setTaskDetails] = useState("");
+  const [refreshkey,setrefreshKey] =useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -32,7 +33,7 @@ function Create() {
               required
             />
           </label>
-          <button type="submit">Add</button>
+          <button type="submit" onClick={()=>setrefreshKey(refreshkey+1)}>Add</button>
         </form>
       </div>
     </div>

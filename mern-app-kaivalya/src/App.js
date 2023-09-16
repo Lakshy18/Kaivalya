@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import HomePage from "./HomePage";
 import ToDoList from "./components/toDoList/ToDoList";
 
 function App() {
+  
   return (
     <div className="App">
       <BrowserRouter>

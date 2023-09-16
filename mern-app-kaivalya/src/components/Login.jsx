@@ -1,19 +1,26 @@
 import axios from "axios";
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
+    await axios
       .post("http://localhost:3001/user/login", {
         user: { userName, password },
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if ((res.data)) {
+          navigate("/toDoList");
+        }
+      })
       .catch((err) => console.log(err));
   };
+
   return (
     <div className="formContainer">
       <div className="formWrapper">
